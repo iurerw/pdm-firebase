@@ -11,6 +11,7 @@ const globalStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 24,
+    gap: 3
   },
   title: {
     fontSize: 18,
@@ -37,6 +38,18 @@ const globalStyles = StyleSheet.create({
     color: "white",
     textAlign: "center",
   },
+  buttonContainer:{
+    
+  },
+  inputContainer: {
+    width: 300
+  },
+  iconsContainer: {
+    flexDirection:"row",
+    gap: 20
+  }
 });
+
+
 
 export default globalStyles;

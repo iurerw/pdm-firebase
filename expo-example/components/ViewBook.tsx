@@ -16,7 +16,6 @@ export default function ViewBook({ book, onDelete }: ViewBookProps) {
     <View
       style={{ borderTopColor: "darkblue", borderTopWidth: 1, marginTop: 12 }}
     >
-      <Text>id: {book.id}</Text>
       <Text>Title: {book.title}</Text>
       <Text>Author: {book.author}</Text>
       <Text>Pages: {book.pages}</Text>

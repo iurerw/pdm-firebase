@@ -1,6 +1,7 @@
 import { useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 import { Alert, Text, TextInput, View } from "react-native";
+import Entypo from '@expo/vector-icons/Entypo';
 
 import Loading from "../components/Loading";
 import StyledButton from "../components/StyledButton";
@@ -23,13 +24,12 @@ export default function _screen() {
   if (loading) return <Loading />;
 
   return (
+    
     <View style={globalStyles.container}>
+      <Entypo name="open-book" size={200} color="black" />
       <Text style={globalStyles.title}>
-        simple-firestore-hooks expo example
+      Sign Up
       </Text>
-      <Text>Before start: check Readme.md for setup details!</Text>
-      <Text>login with email: user@example.com, password: 123456</Text>
-
       <TextInput
         style={globalStyles.input}
         value={email}

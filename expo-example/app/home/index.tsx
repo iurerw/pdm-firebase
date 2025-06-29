@@ -1,6 +1,9 @@
 import { faker } from "@faker-js/faker";
-import { Stack } from "expo-router";
+import { router, Stack } from "expo-router";
 import { Alert, FlatList, Text, View } from "react-native";
+import AntDesign from '@expo/vector-icons/AntDesign';
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+
 
 import HeaderRight from "../../components/HeaderRight";
 import Loading from "../../components/Loading";
@@ -14,6 +17,14 @@ export default function Home() {
   const { data, create, remove, refreshData, loading } =
     useCollection<Book>("books");
 
+  const createNewBook = () => {
+    router.push('../register/')
+  }
+
+  const createUser = () => {
+    router.push('../user/')
+  }
+
   return (
     <View style={globalStyles.container}>
       <Stack.Screen
@@ -23,24 +34,17 @@ export default function Home() {
         }}
       />
 
-      <Text style={globalStyles.title}>useCollection example</Text>
+      <Text style={globalStyles.title}>Welcome</Text>
 
-      <StyledButton
-        title="Create book"
-        onPress={async () => {
-          try {
-            await create({
-              title: faker.lorem.words(4),
-              author: faker.name.fullName(),
-              pages: faker.datatype.number({ max: 1000 }),
-            });
+      <View style={globalStyles.iconsContainer}>
+        <FontAwesome6 name="book" size={100} color="darkblue" 
+          onPress={createNewBook}
 
-            await refreshData();
-          } catch (error: any) {
-            Alert.alert("Create Book error", error.toString());
-          }
-        }}
-      />
+        />
+        <AntDesign name="adduser" size={100} color="darkgreen"
+          onPress={createUser}
+        />
+      </View>
 
       {loading ? (
         <Loading />
